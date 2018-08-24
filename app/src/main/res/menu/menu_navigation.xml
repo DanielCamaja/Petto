@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/cuidadores"
+        android:icon="@drawable/cuidador"
+        android:title="@string/inicio"
+        />
+
+    <item
+        android:id="@+id/ftrab"
+        android:icon="@drawable/email"
+        android:title="@string/inicio"
+        />
+
+    <item
+        android:id="@+id/cuidador"
+        android:icon="@drawable/hacer"
+        android:title="@string/inicio"
+        />
+    <item
+        android:id="@+id/animales"
+        android:icon="@drawable/volteado"
+        android:title="@string/inicio"
+        />
+</menu>

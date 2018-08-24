@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "52712190100",
+    "firebase_url": "https://petto-7ce40.firebaseio.com",
+    "project_id": "petto-7ce40",
+    "storage_bucket": "petto-7ce40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52712190100:android:56df6ceb3a4d2162",
+        "android_client_info": {
+          "package_name": "petto.com.petto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52712190100-3a1otpougdusgas8riqvt3m46nmh6rjs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "petto.com.petto",
+            "certificate_hash": "de5e9aa1ac22b49b25d2859f3905b559d6626e0c"
+          }
+        },
+        {
+          "client_id": "52712190100-72aurlbqh48k408fe5oqcip8cul115db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB21Ad0QoNB7TFlADJA5msEOegiwMy4cG8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52712190100-72aurlbqh48k408fe5oqcip8cul115db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
