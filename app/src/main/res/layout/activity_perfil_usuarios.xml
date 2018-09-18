@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".PerfilUsuario">
+
+    <ImageView
+        android:id="@+id/idimagentrabajador"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:id="@+id/idnombretrabajador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="200dp"
+        android:text="nombre" />
+
+    <TextView
+        android:id="@+id/iddescripciontrabajador"
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="260dp"
+        android:text="descripcion" />
+
+    <Button
+        android:id="@+id/btnTrabajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:layout_marginStart="130dp"
+        android:text="consulta" />
+
+</RelativeLayout>

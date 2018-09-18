@@ -11,16 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AccountActivity.LoginActivity">
+        <activity android:name=".Inicio.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AccountActivity.SignupActivity" />
-        <activity android:name=".AccountActivity.ResetPasswordActivity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".Inicio.ResetPasswordActivity" />
+        <activity android:name=".Inicio.SignupActivity" />
+        <activity android:name=".PerfilUsuario" />
+        <activity android:name=".PerfilCorreo" />
+        <activity android:name=".PerfilAsociaciones"></activity>
     </application>
 
 </manifest>

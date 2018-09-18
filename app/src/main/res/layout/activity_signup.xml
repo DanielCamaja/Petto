@@ -6,17 +6,15 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@color/amarillo"
-    tools:context=".AccountActivity.SignupActivity">
+    tools:context=".Inicio.SignupActivity">
 
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/email"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/apellido"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="148dp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:maxLines="1"
@@ -27,10 +25,8 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/key"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="202dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/email"
         android:focusableInTouchMode="true"
         android:hint="@string/hint_password"
         android:imeOptions="actionUnspecified"
@@ -40,13 +36,13 @@
 
 
     <Button
-        android:id="@+id/sign_up_button"
+        android:id="@+id/sign_in_button"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="138dp"
         android:background="@color/colorPrimaryDark"
         android:contentDescription="Sign In"
         android:text="Sign In"
@@ -54,47 +50,34 @@
         android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/btn_reset_password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/sign_in_button"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:text="@string/btn_forgot_password"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
-
-    <!-- Link to Login Screen -->
-
-    <Button
-        android:id="@+id/sign_in_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
-        android:background="@null"
-        android:text="@string/btn_link_to_login"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="15sp" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
+        android:layout_alignStart="@+id/email"
         app:srcCompat="@drawable/petto" />
+
+    <EditText
+        android:id="@+id/nombreid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/email"
+        android:layout_marginTop="137dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/apellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nombreid"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Apellido"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

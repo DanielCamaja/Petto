@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mas"
+        android:title="Mascotas"
+        android:icon="@drawable/mascota"
+        />
+
+    <item
+        android:id="@+id/co"
+        android:title="Correo"
+        android:icon="@drawable/email"
+        />
+
+    <item
+        android:id="@+id/serv"
+        android:title="Servicios"
+        android:icon="@drawable/hacer"
+        />
+
+    <item
+        android:id="@+id/perf"
+        android:title="perfil"
+        android:icon="@drawable/person"
+        />
+
+</menu>
