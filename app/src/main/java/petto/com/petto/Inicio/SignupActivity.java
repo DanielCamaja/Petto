@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +24,6 @@ import petto.com.petto.R;
 
 public class SignupActivity extends AppCompatActivity {
 
-
     private EditText idnombre01;
     private EditText idapellido01;
     private EditText inputEmail;
@@ -32,16 +33,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private ProgressDialog mProgress;
-    private FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            if (firebaseAuth.getCurrentUser()!=null){
-                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        };
-    };
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onStart() {
@@ -54,7 +46,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-
         mAuth = FirebaseAuth.getInstance();
         idnombre01 = (EditText) findViewById(R.id.nombreid);
         idapellido01 = (EditText) findViewById(R.id.apellido);
@@ -63,6 +54,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
 
         mProgress = new ProgressDialog(this);
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,16 +86,17 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             mProgress.dismiss();
-                            if (task.isSuccessful()) {
+                            //if (task.isSuccessful()) {
                                 mAuth.signInWithEmailAndPassword(email, password);
                                 //Toast.makeText(ActivityRegister.this, user_id, Toast.LENGTH_SHORT).show();
 
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("usuarios");
                                 DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
                                 currentUserDB.child("name").setValue(name);
-                                currentUserDB.child("last name").setValue(last_name);
-                                currentUserDB.child("image").setValue("default");
-                            } else
+                                currentUserDB.child("last_name").setValue(last_name);
+                                currentUserDB.child("email").setValue(email);
+                                currentUserDB.child("password").setValue(password);
+                            //} else
                                 Toast.makeText(SignupActivity.this, "error registering user", Toast.LENGTH_SHORT).show();
 
                         }
@@ -115,4 +108,3 @@ public class SignupActivity extends AppCompatActivity {
 
 
 }
-
