@@ -16,6 +16,10 @@ public class Contact implements Serializable {
 
     }
 
+    public Contact(){
+
+    }
+
     public String getName() {
         return name;
     }

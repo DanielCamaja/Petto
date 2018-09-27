@@ -25,6 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     Dialog myDialog;
     CallFragment mFragment;
 
+
     public RecyclerViewAdapter(Context mContex, List<Contact> mData, CallFragment mFragment) {
         this.mContext = mContex;
         this.mData = mData;
@@ -66,7 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.titulo1.setText(mData.get(position).getName());
         holder.contenido1.setText((CharSequence) mData.get(position).getDescripcion());
-        holder.img.setImageResource(Integer.parseInt(mData.get(position).getImagen()));
+     //   holder.img.setImageResource(Integer.parseInt(mData.get(position).getImagen()));
     }
 
     @Override
