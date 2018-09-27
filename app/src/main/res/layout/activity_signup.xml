@@ -10,10 +10,10 @@
 
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/apellido"
+        android:layout_below="@+id/apellidoid"
         android:layout_centerHorizontal="true"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -22,11 +22,11 @@
 
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/email"
+        android:layout_below="@+id/emailid"
         android:focusableInTouchMode="true"
         android:hint="@string/hint_password"
         android:imeOptions="actionUnspecified"
@@ -36,13 +36,14 @@
 
 
     <Button
-        android:id="@+id/sign_in_button"
+        android:id="@+id/btn_signup"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="signUp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="138dp"
+        android:layout_marginBottom="110dp"
         android:background="@color/colorPrimaryDark"
         android:contentDescription="Sign In"
         android:text="Sign In"
@@ -67,17 +68,19 @@
         android:layout_alignStart="@+id/email"
         android:layout_marginTop="137dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Nombre"
+        android:textColor="@color/white"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/apellido"
+        android:id="@+id/apellidoid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nombreid"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Apellido"
+        android:textColor="@color/white"
         android:inputType="textPersonName" />
 
 </RelativeLayout>

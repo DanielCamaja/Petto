@@ -16,90 +16,89 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import petto.com.petto.Main2Activity;
 import petto.com.petto.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
-    private FirebaseAuth mAuth;
-    private ProgressDialog progressDialog;
-    private Button btnSignup, btnLogin, btnReset;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
+    private EditText Userlogin;
+    private EditText Passwordlogin;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Get Firebase auth instance
+        Userlogin = (EditText) findViewById(R.id.user);
+        Passwordlogin = (EditText) findViewById(R.id.pass);
 
-        progressDialog = new ProgressDialog(this);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.btn1);
-        btnSignup = (Button) findViewById(R.id.btn2);
-        btnReset = (Button) findViewById(R.id.btn3);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        authStateListener =new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null) {
-                    Toast.makeText(MainActivity.this, "Now you are logged In " + firebaseAuth.getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                    startActivity(intent);
-                    finish();
-                    //mAuth.signOut();
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null){
+                    if (!user.isEmailVerified()){
+                        Toast.makeText(MainActivity.this, "correo no verificado", Toast.LENGTH_LONG).show();
+                        user.sendEmailVerification();
+
+                    }else{
+                        Ir();
+                    }
+
                 }
             }
         };
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResetPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
-                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-                    progressDialog.setMessage("Loging , please wait");
-                    progressDialog.show();
-                    mAuth.signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    progressDialog.dismiss();
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(MainActivity.this, "Login succesful", Toast.LENGTH_SHORT).show();
-                                    } else
-                                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
 
+    }
+
+    private void Ir() {
+        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (authStateListener != null)
+            firebaseAuth.removeAuthStateListener(authStateListener);
+    }
+
+    public void Login(View view) {
+        String username = Userlogin.getText().toString();
+        String password = Passwordlogin.getText().toString();
+
+        firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (!task.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Error de Inicio", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
+
+    }
+
+    public void ResetPassword(View view) {
+        Intent intent0 = new Intent(MainActivity.this, ResetPasswordActivity.class);
+        startActivity(intent0);
+    }
+
+    public void Register(View view) {
+        Intent intent0 = new Intent(MainActivity.this, SignupActivity.class);
+        startActivity(intent0);
     }
 }

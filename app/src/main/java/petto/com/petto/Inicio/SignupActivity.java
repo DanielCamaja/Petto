@@ -12,98 +12,101 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import petto.com.petto.Main2Activity;
 import petto.com.petto.R;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText idnombre01;
-    private EditText idapellido01;
-    private EditText inputEmail;
-    private EditText inputPassword;
+    private EditText nombresignup;
+    private EditText apellidosignup;
+    private EditText emailsignup;
+    private EditText passwordsignup;
 
-    private Button btnSignIn;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth firebaseAuth;
     private ProgressDialog mProgress;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        mAuth = FirebaseAuth.getInstance();
-        idnombre01 = (EditText) findViewById(R.id.nombreid);
-        idapellido01 = (EditText) findViewById(R.id.apellido);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        btnSignIn = (Button) findViewById(R.id.sign_in_button);
+        nombresignup = (EditText) findViewById(R.id.nombreid);
+        apellidosignup = (EditText) findViewById(R.id.apellidoid);
+        emailsignup = (EditText) findViewById(R.id.emailid);
+        passwordsignup = (EditText) findViewById(R.id.passwordid);
+
 
         mProgress = new ProgressDialog(this);
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startRegister();
-            }
-        });
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        authStateListener =new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (firebaseAuth.getCurrentUser() != null) {
                     Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         };
-    }
-    private void startRegister(){
-        final String name = idnombre01.getText().toString().trim();
-        final String last_name = idapellido01.getText().toString().trim();
-        final String email = inputEmail.getText().toString().trim();
-        final String password = inputPassword.getText().toString().trim();
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(last_name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+    }
+
+    public void signUp(View view) {
+
+        final String nombre = nombresignup.getText().toString();
+        final String apellido = apellidosignup.getText().toString();
+        final String email = emailsignup.getText().toString();
+        final String password = passwordsignup.getText().toString();
+
+
+        if (!TextUtils.isEmpty(nombre) && !TextUtils.isEmpty(apellido) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
             mProgress.setMessage("Registering, please wait...");
             mProgress.show();
-            mAuth.createUserWithEmailAndPassword(email, password)
+            firebaseAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             mProgress.dismiss();
-                            //if (task.isSuccessful()) {
-                                mAuth.signInWithEmailAndPassword(email, password);
-                                //Toast.makeText(ActivityRegister.this, user_id, Toast.LENGTH_SHORT).show();
+                            if (task.isSuccessful()) {
+                                firebaseAuth.signInWithEmailAndPassword(email, password);
 
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("usuarios");
-                                DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
-                                currentUserDB.child("name").setValue(name);
-                                currentUserDB.child("last_name").setValue(last_name);
+                                DatabaseReference currentUserDB = mDatabase.child(firebaseAuth.getCurrentUser().getUid());
+                                currentUserDB.child("nombre").setValue(nombre);
+                                currentUserDB.child("apellido").setValue(apellido);
                                 currentUserDB.child("email").setValue(email);
                                 currentUserDB.child("password").setValue(password);
-                            //} else
-                                Toast.makeText(SignupActivity.this, "error registering user", Toast.LENGTH_SHORT).show();
+                            } else {
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                user.sendEmailVerification();
+                            }
 
                         }
-                    });
+
+
+
+            });
         }
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
+    }
 
 
 

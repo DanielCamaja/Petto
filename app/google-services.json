@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "52712190100",
-    "firebase_url": "https://petto-7ce40.firebaseio.com",
-    "project_id": "petto-7ce40",
-    "storage_bucket": "petto-7ce40.appspot.com"
+    "project_number": "644532236463",
+    "firebase_url": "https://petto-41a90.firebaseio.com",
+    "project_id": "petto-41a90",
+    "storage_bucket": "petto-41a90.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:52712190100:android:56df6ceb3a4d2162",
+        "mobilesdk_app_id": "1:644532236463:android:56df6ceb3a4d2162",
         "android_client_info": {
           "package_name": "petto.com.petto"
         }
       },
       "oauth_client": [
         {
-          "client_id": "52712190100-3a1otpougdusgas8riqvt3m46nmh6rjs.apps.googleusercontent.com",
+          "client_id": "644532236463-eshufsn6rkp20d7rvecimaqjb0t2mvek.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "petto.com.petto",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "52712190100-72aurlbqh48k408fe5oqcip8cul115db.apps.googleusercontent.com",
+          "client_id": "644532236463-bg620og7tgps9alvl84n35hsqa23ktec.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB21Ad0QoNB7TFlADJA5msEOegiwMy4cG8"
+          "current_key": "AIzaSyCQCNvCelHw2EE7sWAPUyxzRFSYrZl1COI"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "52712190100-72aurlbqh48k408fe5oqcip8cul115db.apps.googleusercontent.com",
+              "client_id": "644532236463-bg620og7tgps9alvl84n35hsqa23ktec.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

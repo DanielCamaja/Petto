@@ -7,19 +7,12 @@ public class Contact implements Serializable {
     private String name;
     private String info;
     private String descripcion;
-    private int imagenId;
-    private int imagenCorreo;
+    private String imagen;
 
-
-    public Contact() {
-    }
-
-    public Contact(String name, String info,String descripcion, int imagenId, int imagenDetalle) {
+    public Contact(String name, String descripcion, String imagen) {
         this.name = name;
-        this.info = info;
         this.descripcion = descripcion;
-        this.imagenId = imagenId;
-        this.imagenCorreo = imagenDetalle;
+        this.imagen = imagen;
 
     }
 
@@ -27,17 +20,8 @@ public class Contact implements Serializable {
         return name;
     }
 
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
     }
 
     public String getDescripcion() {
@@ -48,19 +32,11 @@ public class Contact implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public int getImagenId() {
-        return imagenId;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImagenId(int imagenId) {
-        this.imagenId = imagenId;
-    }
-
-    public int getImagenCorreo() {
-        return imagenCorreo;
-    }
-
-    public void setImagenCorreo(int imagenCorreo) {
-        this.imagenCorreo = imagenCorreo;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
