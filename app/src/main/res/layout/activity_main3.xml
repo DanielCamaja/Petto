@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main3Activity">
+
+
+    <EditText
+        android:id="@+id/titulop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/email"
+        android:layout_marginTop="137dp"
+        android:ems="10"
+        android:hint="Titulo de publicacion"
+        android:textColor="@color/white"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/costop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulop"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Precio"
+        android:textColor="@color/white"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/descripcionp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/costop"
+        android:layout_centerHorizontal="true"
+        android:hint="Descripcion"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:textColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/btn_publicar"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="110dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="Sign In"
+        android:text="Publicar"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>
