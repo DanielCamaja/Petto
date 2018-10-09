@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import petto.com.petto.Main3Activity;
 import petto.com.petto.PerfilUsuario;
 import petto.com.petto.R;
 import petto.com.petto.entidades.Contact;
@@ -33,6 +35,7 @@ public class CallFragment extends Fragment {
     private FirebaseRecyclerAdapter<Contact, CallFragment.NewsViewHolder> mPeopleRVAdapter;
 
 
+
     public CallFragment() {
 
     }
@@ -42,7 +45,17 @@ public class CallFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.call_fragment, container, false);
 
+
+        FloatingActionButton floting = v.findViewById(R.id.floatingb);
         CallrecyclerView = (RecyclerView) v.findViewById(R.id.callrecyclerview);
+
+        floting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Main3Activity.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }
@@ -57,6 +70,7 @@ public class CallFragment extends Fragment {
 
         DatabaseReference personsRef = FirebaseDatabase.getInstance().getReference().child("news");
         Query personsQuery = personsRef.orderByKey();
+
 
         CallrecyclerView.hasFixedSize();
         CallrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

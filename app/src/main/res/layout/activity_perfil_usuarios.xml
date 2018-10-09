@@ -40,10 +40,10 @@
         android:id="@+id/btnTrabajo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="21dp"
-        android:layout_marginStart="130dp"
-        android:text="consulta" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="23dp"
+        android:text="Hacer reservacion" />
 
 </RelativeLayout>

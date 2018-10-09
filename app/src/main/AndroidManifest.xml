@@ -22,7 +22,8 @@
         <activity android:name=".Inicio.ResetPasswordActivity" />
         <activity android:name=".Inicio.SignupActivity" />
         <activity android:name=".PerfilUsuario" />
-        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".Main3Activity" />
+        <activity android:name=".fragments.PerfilDirectorio"></activity>
     </application>
 
 </manifest>

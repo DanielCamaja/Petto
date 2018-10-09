@@ -10,12 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import petto.com.petto.Inicio.MainActivity;
 import petto.com.petto.R;
 
 public class PerfilFragment extends Fragment {
 
     private Button btnsal;
+    private FirebaseAuth mAuth;
     View v;
     public PerfilFragment() {
 
@@ -30,8 +33,11 @@ public class PerfilFragment extends Fragment {
         btnsal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+              FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(),MainActivity.class);
                 startActivity(intent);
+
+
             }
         });
 

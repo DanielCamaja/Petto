@@ -11,6 +11,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main3Activity extends AppCompatActivity {
 
      private Button boton_publicar;
@@ -26,6 +29,8 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
+        titulop = findViewById(R.id.titulop);
+        descripcionp =  findViewById(R.id.descripcionp);
         boton_publicar = findViewById(R.id.btn_publicar);
         mDatabasep = FirebaseDatabase.getInstance().getReference();
 
@@ -36,18 +41,17 @@ public class Main3Activity extends AppCompatActivity {
                 startActivity(intent);
                 Toast.makeText(Main3Activity.this, "Datos enviados", Toast.LENGTH_SHORT).show();
 
-            /*    String titulo = titulop.getText().toString();
-                int precio = Integer.parseInt(preciop.getText().toString());
+                String name = titulop.getText().toString();
                 String descripcion = descripcionp.getText().toString();
 
-                Map<String, Object> hopperUpdates = new HashMap<>();
-                hopperUpdates.put("titulo", titulo);
-                hopperUpdates.put("precio", precio);
-                hopperUpdates.put("descrpcion", descripcion);
+
+                Map<String, Object> contenido = new HashMap<>();
+                contenido.put("name", name);
+                contenido.put("descripcion", descripcion);
 
 
-              mDatabasep.child("ususarios").push().setValue(hopperUpdates);
-               */
+              mDatabasep.child("news").push().setValue(contenido);
+
             }
         });
 
