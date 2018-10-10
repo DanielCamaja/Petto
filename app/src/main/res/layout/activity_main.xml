@@ -33,25 +33,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="229dp"
+        android:layout_marginTop="235dp"
         android:hint="Email"
-        android:maxLines="1"
-        android:textColorHint="#fff" />
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/white" />
 
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/nombreid"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="205dp"
+        android:layout_marginBottom="204dp"
         android:drawableLeft="@drawable/key"
-        android:layout_below="@+id/nombreid"
         android:hint="Password"
+        android:layout_alignParentStart="true"
+        android:focusableInTouchMode="true"
+        android:imeOptions="actionUnspecified"
+        android:inputType="textPassword"
         android:maxLines="1"
-        android:password="true"
-        android:textColorHint="#fff" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/btn_login"
