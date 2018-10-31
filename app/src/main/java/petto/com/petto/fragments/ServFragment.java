@@ -83,7 +83,7 @@ public class ServFragment extends Fragment {
 
 
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.list_menu, parent, false);
+                        .inflate(R.layout.elemento_lista, parent, false);
 
                 return new ServFragment.NewsViewHolder(view);
             }
@@ -116,17 +116,17 @@ public class ServFragment extends Fragment {
         }
 
         public void setTitle(String title) {
-            TextView post_title = (TextView) mView.findViewById(R.id.asociaciontitulo);
+            TextView post_title = (TextView) mView.findViewById(R.id.texttitulo);
             post_title.setText(title);
         }
 
         public void setDesc(String desc) {
-            TextView post_desc = (TextView) mView.findViewById(R.id.asociaciondesc);
+            TextView post_desc = (TextView) mView.findViewById(R.id.textdesc);
             post_desc.setText(desc);
         }
 
         public void setImage(Context ctx, String image) {
-            ImageView post_image = (ImageView) mView.findViewById(R.id.asociacionimagen);
+            ImageView post_image = (ImageView) mView.findViewById(R.id.imagen);
             Picasso.get().load(image).into(post_image);
         }
     }

@@ -35,7 +35,7 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
     public RecyclerViewAdapterEmail.My1ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v = LayoutInflater.from(mContext1).inflate(R.layout.item_list,parent,false);
+        v = LayoutInflater.from(mContext1).inflate(R.layout.elemento_lista,parent,false);
         final My1ViewHolder v1Holder = new My1ViewHolder(v);
 
         mDialog = new Dialog(mContext1);
@@ -51,7 +51,7 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
 
                 dialog_name.setText(mData1.get(v1Holder.getAdapterPosition()).getName());
                 dialog_descripcion.setText(mData1.get(v1Holder.getAdapterPosition()).getDescripcion());
-                dialog_img.setImageResource(mData1.get(v1Holder.getAdapterPosition()).getImagenId());
+                dialog_img.setImageResource(Integer.parseInt(mData1.get(v1Holder.getAdapterPosition()).getImagen()));
 
 
                 mDialog.show();
@@ -68,8 +68,8 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
     public void onBindViewHolder(@NonNull RecyclerViewAdapterEmail.My1ViewHolder holder, int position) {
 
         holder.Titulo01.setText(mData1.get(position).getName());
-        holder.contenido01.setText((CharSequence) mData1.get(position).getInfo());
-        holder.imagen01.setImageResource(mData1.get(position).getImagenId());
+        holder.contenido01.setText((CharSequence) mData1.get(position).getDescripcion());
+        holder.imagen01.setImageResource(Integer.parseInt(mData1.get(position).getImagen()));
 
 
     }
@@ -90,10 +90,10 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
         public My1ViewHolder(View itemView) {
             super(itemView);
 
-            Lineal01 = (LinearLayout) itemView.findViewById(R.id.id_itemlist);
-            Titulo01 = (TextView) itemView.findViewById(R.id.tituloid);
-            contenido01 = (TextView) itemView.findViewById(R.id.conteidoid);
-            imagen01 = (ImageView) itemView.findViewById(R.id.circleid);
+            Lineal01 = (LinearLayout) itemView.findViewById(R.id.lista_elemento);
+            Titulo01 = (TextView) itemView.findViewById(R.id.texttitulo);
+            contenido01 = (TextView) itemView.findViewById(R.id.textdesc);
+            imagen01 = (ImageView) itemView.findViewById(R.id.imagen);
 
         }
     }

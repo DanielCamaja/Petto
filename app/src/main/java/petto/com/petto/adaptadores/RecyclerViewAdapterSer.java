@@ -38,7 +38,7 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
     public RecyclerViewAdapterSer.My2ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v = LayoutInflater.from(mContext).inflate(R.layout.list_menu,parent,false);
+        v = LayoutInflater.from(mContext).inflate(R.layout.elemento_lista,parent,false);
         final My2ViewHolder v2Holder = new My2ViewHolder(v);
 
         mDialog2 = new Dialog(mContext);
@@ -64,7 +64,7 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
 
                 dialog_name1.setText(mData2.get(v2Holder.getAdapterPosition()).getName());
                 dialog_descripcion1.setText(mData2.get(v2Holder.getAdapterPosition()).getDescripcion());
-                dialog_img1.setImageResource(mData2.get(v2Holder.getAdapterPosition()).getImagenId());
+                dialog_img1.setImageResource(Integer.parseInt(mData2.get(v2Holder.getAdapterPosition()).getImagen()));
 
 
                 mDialog2.show();
@@ -81,8 +81,8 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
     public void onBindViewHolder(@NonNull RecyclerViewAdapterSer.My2ViewHolder holder, int position) {
 
         holder.nombre.setText(mData2.get(position).getName());
-        holder.desc.setText(mData2.get(position).getInfo());
-        holder.compania.setImageResource(mData2.get(position).getImagenId());
+        holder.desc.setText(mData2.get(position).getDescripcion());
+        holder.compania.setImageResource(Integer.parseInt(mData2.get(position).getImagen()));
     }
 
     @Override
@@ -100,10 +100,10 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
         public My2ViewHolder(View itemView) {
             super(itemView);
 
-            listamenu = (LinearLayout) itemView.findViewById(R.id.idlistamenu);
-            nombre =(TextView) itemView.findViewById(R.id.idtitulo);
-            desc = (TextView) itemView.findViewById(R.id.textoc);
-            compania =(ImageView) itemView.findViewById(R.id.idimagen1);
+            listamenu = (LinearLayout) itemView.findViewById(R.id.lista_elemento);
+            nombre =(TextView) itemView.findViewById(R.id.texttitulo);
+            desc = (TextView) itemView.findViewById(R.id.textdesc);
+            compania =(ImageView) itemView.findViewById(R.id.imagen);
 
 
         }
