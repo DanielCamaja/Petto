@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp"
-        android:background="@drawable/petto" />
+        android:background="@drawable/petto"
+        android:contentDescription="TODO" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,80 +28,28 @@
         android:textColor="@color/cafe"
         android:textSize="30dp" />
 
-    <EditText
-        android:id="@+id/user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="235dp"
-        android:hint="Email"
-        android:textColor="@color/white"
-        android:drawableLeft="@drawable/email"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/white" />
-
-
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nombreid"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="204dp"
-        android:drawableLeft="@drawable/key"
-        android:hint="Password"
-        android:layout_alignParentStart="true"
-        android:focusableInTouchMode="true"
-        android:imeOptions="actionUnspecified"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/Registrar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:onClick="Login"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
-        android:text="Login" />
-
-
-    <Button
-        android:id="@+id/btn_forget"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btn_login"
-        android:layout_marginTop="-120dp"
-        android:background="@null"
-        android:onClick="ResetPassword"
-        android:text="Forgot your password?"
-        android:textAllCaps="false"
+        android:layout_marginBottom="252dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Registrar"
         android:textColor="@color/white" />
 
-    <!-- Link to Login Screen -->
-
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="Register"
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
-        android:background="@null"
-        android:text="Not a member? Get registered in Firebase now!"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        tools:ignore="SpUsage" />
+        android:layout_marginBottom="179dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Login"
+        android:textColor="@color/white" />
+
 
 </RelativeLayout>
