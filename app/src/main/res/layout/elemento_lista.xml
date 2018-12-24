@@ -1,64 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:id="@+id/lista_elemento"
-    android:layout_height="wrap_content"
-    >
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="115dp"
+    android:layout_margin="2dp"
+    cardview:cardCornerRadius="4dp"
+    android:layout_height="190dp"
+    android:id="@+id/lista_elemento">
 
-
-    <android.support.v7.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="7.5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cliente1" />
+
+        <TextView
+            android:id="@+id/texttitulo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="95dp"
+            android:text="Nombre"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imagen"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/cliente1"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="10dp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/texttitulo"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nombre"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textdesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descripcion "
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginRight="10dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/textdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="127dp"
+            android:layout_marginBottom="15dp"
+            android:text="Descripcion " />
 
 
+    </RelativeLayout>
 
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

@@ -24,16 +24,16 @@ public class MainActivity extends AppCompatActivity {
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(intent);
+                Intent intent0 = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent0);
             }
         });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent1);
             }
         });
 
