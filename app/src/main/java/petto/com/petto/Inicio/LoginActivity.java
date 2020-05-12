@@ -1,14 +1,17 @@
 package petto.com.petto.Inicio;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private GoogleApiClient googleApiClient;
     private SignInButton signInButton;
+    private ProgressDialog mProgress;
     public static final int SIGN_IN_CODE = 1080;
 
     private EditText Userlogin;
@@ -46,8 +50,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btninicio = (Button) findViewById(R.id.btn_login);
         Userlogin = (EditText) findViewById(R.id.email);
         Passwordlogin = (EditText) findViewById(R.id.password);
-
+        mProgress = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+
+
 
 
         authStateListener =new FirebaseAuth.AuthStateListener() {
@@ -55,18 +61,27 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null){
-
+                    mProgress.setMessage("Registering, please wait...");
+                    mProgress.show();
                     if (!user.isEmailVerified()){
-                        Toast.makeText(LoginActivity.this, "correo no verificado", Toast.LENGTH_LONG).show();
-                        user.isEmailVerified();
+                        mProgress.dismiss();
+                        btninicio.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String username = Userlogin.getText().toString();
+                                String password = Passwordlogin.getText().toString();
+
+
+                            }
+                        });
 
                     }else{
                         btninicio.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                mProgress.dismiss();
+                                Toast.makeText(LoginActivity.this, "correo no verificado", Toast.LENGTH_LONG).show();
 
-                                Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
-                                startActivity(intent);
 
                             }
                         });
@@ -79,11 +94,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .requestEmail()
                 .build();
 
-        googleApiClient = new GoogleApiClient.Builder(this)
+       /* googleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this,this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
+*/
         signInButton =  (SignInButton) findViewById(R.id.signgoogle);
         signInButton.setSize(SignInButton.SIZE_ICON_ONLY);
         signInButton.setOnClickListener(new View.OnClickListener() {

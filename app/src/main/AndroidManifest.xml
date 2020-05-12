@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="petto.com.petto">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icono"
+        android:icon="@mipmap/marketcar_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/icono"
+        android:roundIcon="@mipmap/marketcar_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Inicio.MainActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Registrar"></activity>
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Inicio.ResetPasswordActivity" />
+        <activity android:name=".Inicio.MainActivity" />
+        <activity
+            android:name=".Inicio.ResetPasswordActivity"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".Inicio.SignupActivity" />
         <activity android:name=".PerfilUsuario" />
         <activity android:name=".Main3Activity" />

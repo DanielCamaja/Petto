@@ -3,21 +3,21 @@ package petto.com.petto.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -47,16 +47,8 @@ public class CallFragment extends Fragment {
         v = inflater.inflate(R.layout.call_fragment, container, false);
 
 
-        FloatingActionButton floting = v.findViewById(R.id.floatingb);
         CallrecyclerView = (RecyclerView) v.findViewById(R.id.callrecyclerview);
 
-        floting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),Main3Activity.class);
-                startActivity(intent);
-            }
-        });
 
         return v;
     }
@@ -65,32 +57,39 @@ public class CallFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("news");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("promociones");
         mDatabase.keepSynced(true);
 
 
-        DatabaseReference personsRef = FirebaseDatabase.getInstance().getReference().child("news");
+        DatabaseReference personsRef = FirebaseDatabase.getInstance().getReference().child("promociones");
         Query personsQuery = personsRef.orderByKey();
 
 
         CallrecyclerView.hasFixedSize();
-        CallrecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        CallrecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<Contact>().setQuery(personsQuery, Contact.class).build();
-
         mPeopleRVAdapter = new FirebaseRecyclerAdapter<Contact, CallFragment.NewsViewHolder>(personsOptions) {
             @Override
-            protected void onBindViewHolder(@NonNull NewsViewHolder holder, int position, @NonNull Contact model) {
-                holder.setTitle(model.getName());
-                holder.setDesc(model.getDescripcion());
-                holder.setImage(getActivity().getApplicationContext(),model.getImagen());
+            protected void onBindViewHolder(@NonNull NewsViewHolder holder, int position, @NonNull final Contact model) {
+
+                final String key=getRef(position).getKey();
                 holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity().getApplicationContext(), PerfilUsuario.class);
+                        intent.putExtra("key", key);
+
                         startActivity(intent);
                     }
                 });
+
+
+                holder.setTitle(model.getName());
+                holder.setDesc(model.getDescripcion());
+                holder.setImage(model.getImagen());
+
+
             }
 
             @NonNull
@@ -141,9 +140,9 @@ public class CallFragment extends Fragment {
             post_desc.setText(desc);
         }
 
-        public void setImage(Context ctx, String image) {
+        public void setImage(String imagen) {
             ImageView post_image = (ImageView) mView.findViewById(R.id.imagen);
-            Picasso.get().load(image).into(post_image);
+            Picasso.get().load(imagen).into(post_image);
         }
     }
 }

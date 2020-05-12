@@ -3,17 +3,17 @@ package petto.com.petto.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -22,8 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import petto.com.petto.PerfilAsociaciones;
+import petto.com.petto.PerfilUsuario;
 import petto.com.petto.R;
 import petto.com.petto.entidades.Contact;
+
+import static java.security.AccessController.getContext;
 
 public class ServFragment extends Fragment {
 
@@ -50,32 +54,40 @@ public class ServFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mDatabase3 = FirebaseDatabase.getInstance().getReference().child("directorio");
+        mDatabase3 = FirebaseDatabase.getInstance().getReference().child("news");
         mDatabase3.keepSynced(true);
 
 
-        DatabaseReference personsRef = FirebaseDatabase.getInstance().getReference().child("directorio");
+        DatabaseReference personsRef = FirebaseDatabase.getInstance().getReference().child("news");
         Query personsQuery = personsRef.orderByKey();
 
 
         ServrecyclerView.hasFixedSize();
-        ServrecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        ServrecyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
 
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<Contact>().setQuery(personsQuery, Contact.class).build();
 
         mPeopleRVAdapter3 = new FirebaseRecyclerAdapter<Contact, ServFragment.NewsViewHolder>(personsOptions) {
             @Override
             protected void onBindViewHolder(@NonNull NewsViewHolder holder, int position, @NonNull Contact model) {
-                holder.setTitle(model.getName());
-                holder.setDesc(model.getDescripcion());
-                holder.setImage(getActivity().getApplicationContext(),model.getImagen());
+
+                final String key=getRef(position).getKey();
                 holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity().getApplicationContext(), PerfilDirectorio.class);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), PerfilAsociaciones.class);
+                        intent1.putExtra("key", key);
+
+                        startActivity(intent1);
                     }
                 });
+
+
+                holder.setTitle(model.getName());
+                holder.setDesc(model.getDescripcion());
+                holder.setImage(model.getImagen());
+
+
             }
 
             @NonNull
@@ -84,7 +96,7 @@ public class ServFragment extends Fragment {
 
 
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.elemento_lista, parent, false);
+                        .inflate(R.layout.news_row, parent, false);
 
                 return new ServFragment.NewsViewHolder(view);
             }
@@ -126,9 +138,13 @@ public class ServFragment extends Fragment {
             post_desc.setText(desc);
         }
 
-        public void setImage(Context ctx, String image) {
+
+        public void setImage(int image) {
             ImageView post_image = (ImageView) mView.findViewById(R.id.imagen);
             Picasso.get().load(image).into(post_image);
+        }
+
+        public void setImage(String imagen) {
         }
     }
 }

@@ -4,10 +4,7 @@ import java.io.Serializable;
 
 public class Contact implements Serializable {
 
-    private String Title;
-    private String name;
-    private String descripcion;
-    private String imagen;
+    String Title, name, descripcion, imagen;
 
     public Contact(String Title,String name, String descripcion, String imagen) {
         this.Title =Title;

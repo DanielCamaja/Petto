@@ -3,8 +3,6 @@ package petto.com.petto.adaptadores;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
     public RecyclerViewAdapterSer.My2ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v = LayoutInflater.from(mContext).inflate(R.layout.elemento_lista,parent,false);
+        v = LayoutInflater.from(mContext).inflate(R.layout.mensajes_chat,parent,false);
         final My2ViewHolder v2Holder = new My2ViewHolder(v);
 
         mDialog2 = new Dialog(mContext);
@@ -49,9 +50,9 @@ public class RecyclerViewAdapterSer extends RecyclerView.Adapter<RecyclerViewAda
             @Override
             public void onClick(View v) {
 
-                TextView dialog_name1 = (TextView) mDialog2.findViewById(R.id.idnombreasociaciones);
-                TextView dialog_descripcion1 = (TextView) mDialog2.findViewById(R.id.iddescripcionasociaciones);
-                ImageView dialog_img1 = (ImageView) mDialog2.findViewById(R.id.idimagenasociaciones);
+                TextView dialog_name1 = (TextView) mDialog2.findViewById(R.id.nombreasi);
+                TextView dialog_descripcion1 = (TextView) mDialog2.findViewById(R.id.nombreasi);
+                ImageView dialog_img1 = (ImageView) mDialog2.findViewById(R.id.imagenaso);
                 Button btnAsociaciones = (Button) mDialog2.findViewById(R.id.btnasociaciones);
 
                 btnAsociaciones.setOnClickListener(new View.OnClickListener() {

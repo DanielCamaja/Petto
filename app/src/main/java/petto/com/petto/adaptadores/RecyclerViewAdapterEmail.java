@@ -2,14 +2,15 @@ package petto.com.petto.adaptadores;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class RecyclerViewAdapterEmail extends RecyclerView.Adapter<RecyclerViewA
     public RecyclerViewAdapterEmail.My1ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v = LayoutInflater.from(mContext1).inflate(R.layout.elemento_lista,parent,false);
+        v = LayoutInflater.from(mContext1).inflate(R.layout.mensajes_chat,parent,false);
         final My1ViewHolder v1Holder = new My1ViewHolder(v);
 
         mDialog = new Dialog(mContext1);

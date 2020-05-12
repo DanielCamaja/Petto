@@ -1,9 +1,11 @@
 package petto.com.petto;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import petto.com.petto.adaptadores.ViewPagerAdapter;
 import petto.com.petto.fragments.CallFragment;
@@ -27,17 +29,17 @@ public class Main2Activity extends AppCompatActivity {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.AddFragment(new CallFragment(),"");
-        adapter.AddFragment(new CorreoFragment(),"");
         adapter.AddFragment(new ServFragment(),"");
+        adapter.AddFragment(new CorreoFragment(),"");
         adapter.AddFragment(new PerfilFragment(),"");
         viewPager.setAdapter(adapter);
         tabb1.setupWithViewPager(viewPager);
 
 
-        tabb1.getTabAt(0).setIcon(R.drawable.mascota);
-        tabb1.getTabAt(1).setIcon(R.drawable.email);
-        tabb1.getTabAt(2).setIcon(R.drawable.hacer);
-        tabb1.getTabAt(3).setIcon(R.drawable.person);
+        tabb1.getTabAt(0).setIcon(R.drawable.cesta);
+        tabb1.getTabAt(1).setIcon(R.drawable.buscar);
+        tabb1.getTabAt(2).setIcon(R.drawable.recibo);
+        tabb1.getTabAt(3).setIcon(R.drawable.usuario);
 
 
 

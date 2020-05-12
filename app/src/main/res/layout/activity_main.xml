@@ -36,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="252dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Registrar"
+        android:text="SIGN IN"
         android:textColor="@color/white" />
 
 
@@ -48,7 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="179dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Login"
+        android:text="SIGN UP"
         android:textColor="@color/white" />
 
 

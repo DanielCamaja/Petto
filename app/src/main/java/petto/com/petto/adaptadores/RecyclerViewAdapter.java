@@ -2,8 +2,7 @@ package petto.com.petto.adaptadores;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
+import petto.com.petto.PerfilUsuario;
 import petto.com.petto.R;
 import petto.com.petto.entidades.Contact;
 import petto.com.petto.fragments.CallFragment;
@@ -33,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, final int viewType) {
 
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.elemento_lista,parent,false);
@@ -49,13 +52,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 TextView dialog_name = (TextView) myDialog.findViewById(R.id.idnombretrabajador);
                 TextView dialog_descripcion = (TextView) myDialog.findViewById(R.id.iddescripciontrabajador);
                 ImageView dialog_img = (ImageView)myDialog.findViewById(R.id.idimagentrabajador);
-                Button btnTrabajo = (Button)myDialog.findViewById(R.id.btnTrabajo);
 
+                Intent intent = new Intent(mContext, PerfilUsuario.class);
+                intent.putExtra("title",mData.get(viewType).getTitle());
+                intent.putExtra("desc",mData.get(viewType).getDescripcion());
+                intent.putExtra("image",mData.get(viewType).getImagen());
 
                 dialog_name.setText(mData.get(vHolder.getAdapterPosition()).getName());
                 dialog_descripcion.setText(mData.get(vHolder.getAdapterPosition()).getDescripcion());
                 dialog_img.setImageResource(Integer.parseInt(mData.get(vHolder.getAdapterPosition()).getImagen()));
                 myDialog.show();
+
 
             }
         });
@@ -90,9 +97,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
 
             contact = (LinearLayout) itemView.findViewById(R.id.lista_elemento);
-            titulo1 = (TextView) itemView.findViewById(R.id.texttitulo);
-            contenido1 = (TextView) itemView.findViewById(R.id.textdesc);
-            img = (ImageView) itemView.findViewById(R.id.imagen);
+            titulo1 = (TextView) itemView.findViewById(R.id.idnombretrabajador);
+            contenido1 = (TextView) itemView.findViewById(R.id.iddescripciontrabajador);
+            img = (ImageView) itemView.findViewById(R.id.idimagentrabajador);
 
         }
     }
