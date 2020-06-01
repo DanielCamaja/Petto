@@ -59,9 +59,6 @@ public class PerfilUsuario extends AppCompatActivity {
 
                 text1.setText(""+title);
                 text2.setText(desc);
-
-
-
             }
 
             @Override
@@ -71,8 +68,6 @@ public class PerfilUsuario extends AppCompatActivity {
         });
 
         //solicitarDatosFirebase();
-
-
     }
 /*
     private void solicitarDatosFirebase() {
