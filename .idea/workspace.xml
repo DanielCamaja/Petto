@@ -17,17 +17,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ebaf0cf5-e0f8-460c-ac5c-c212daf2ca2d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Petto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Petto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/petto/com/petto/PerfilUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/petto/com/petto/PerfilUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/petto/com/petto/fragments/CallFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/petto/com/petto/fragments/CallFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/call_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/call_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/perfil_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/perfil_fragment.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,8 +71,14 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="app" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="call&#9;FILE&#9;file:///home/daniel/Documentos/github/Petto/app/src/main/java/petto/com/petto/fragments/CallFragment.java&#10;Mai&#9;FILE&#9;file:///home/daniel/Documentos/github/Petto/app/src/main/res/layout/activity_main2.xml&#10;lo&#9;FILE&#9;file:///home/daniel/Documentos/github/Petto/app/src/main/java/petto/com/petto/Inicio/LoginActivity.java" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
@@ -103,18 +105,6 @@
       <recent name="C:\Users\Daniel\Documents\GitHub\Petto\app\src\main\res\layout" />
       <recent name="C:\Users\Daniel\Documents\GitHub\Petto\app\src\main\res\drawable-xxxhdpi" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
@@ -220,5 +210,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="489" y="252" key="com.intellij.ide.util.TipDialog" timestamp="1593464964244">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="489" y="252" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1593464964244" />
   </component>
 </project>
