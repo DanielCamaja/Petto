@@ -36,9 +36,9 @@ public class Main2Activity extends AppCompatActivity {
         tabb1.setupWithViewPager(viewPager);
 
 
-        tabb1.getTabAt(0).setIcon(R.drawable.cesta);
+        tabb1.getTabAt(0).setIcon(R.drawable.mascota);
         tabb1.getTabAt(1).setIcon(R.drawable.buscar);
-        tabb1.getTabAt(2).setIcon(R.drawable.recibo);
+        tabb1.getTabAt(2).setIcon(R.drawable.ic_chat_bubble_outline_black_24dp);
         tabb1.getTabAt(3).setIcon(R.drawable.usuario);
 
 
